@@ -6,9 +6,11 @@ namespace RST2_Programiranje_Vaje
     public enum Vaje1
     {
         Naloga112 = 1,
-        Naloga123 = 2,
-        Naloga131 = 3,
-        Naloga141 = 4,
+        Naloga121 = 2,
+        Naloga123 = 3,
+        Naloga131 = 4,
+        Naloga141 = 5,
+        Naloga122 = 6,
     }
 
     /// <summary>
@@ -24,9 +26,52 @@ namespace RST2_Programiranje_Vaje
         /// </summary>
         public static void Naloga112()
         {
-            int rezultat = AuxilliaryFunctions.Vsota(4, 6);
+            int rezultat = AuxilliaryFunctions.SUM(4, 6);
             Console.WriteLine($"Vsota števil 4 in 6 je {rezultat}");
         }
+
+        /// <summary>
+        /// Funkcija izpise dan v tednu korespondenčen vnešeni zaporedni
+        /// številki
+        /// </summary>
+        /// <param name="day"></param>
+        /// <returns></returns>
+        public static string Naloga121(int day)
+        {
+            switch(day)
+            {
+                case 1:
+                    return "Monday";
+                case 2:
+                    return "Tuesday";
+                case 3:
+                    return "Wednesday";
+                case 4:
+                    return "Thursday";
+                case 5:
+                    return "Friday";
+                case 6:
+                    return "Saturday";
+                case 7:
+                    return "Sunday";
+                default:
+                    return "Enter different number.";
+            }
+        }
+
+        public static string Naloga122(int t){
+            if (t < 10){
+                return "Wear a sweater.";
+            }
+            else if(t > 20 && t < 30){
+                return "Wear a T-shirt.";
+            }
+            else{
+                return "We ran out of suggestions of what to wear :P.";
+            }
+        }
+        
+                
 
         /// <summary>
         /// Zapišite funkcijo, ki uporablja stavek switch, da se odloči 
@@ -65,21 +110,7 @@ namespace RST2_Programiranje_Vaje
         /// </summary>
         public static void Naloga131()
         {
-            // Pridobimo trenutni čas
-            DateTime trenutniCas = DateTime.Now;
 
-            // Ponavljamo, dokler produkt ni deljiv s 17
-            while ((trenutniCas.Hour * trenutniCas.Minute * trenutniCas.Second) % 17 != 0)
-            {
-                // Uporabimo formatiranje v interpolaciji
-                Console.WriteLine($"{trenutniCas:HH:mm:ss}");
-
-                // Po vsakem izpisu počakamo 900 ms
-                Thread.Sleep(900);
-                
-                trenutniCas = DateTime.Now;
-            }
-            Console.WriteLine($"{trenutniCas:HH:mm:ss} je deljivo s 17.");
         }
 
         /// <summary>

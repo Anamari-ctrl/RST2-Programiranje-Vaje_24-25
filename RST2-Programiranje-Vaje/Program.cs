@@ -21,6 +21,22 @@
                                     Vaje_1.Naloga112();
                                 }
                                 break;
+                            case Vaje1.Naloga121:
+                                {
+                                    Console.Write("Enter number corresponding to certain day: ");
+                                    int day = int.Parse(Console.ReadLine());
+                                    string n = Vaje_1.Naloga121(day);
+                                    Console.WriteLine($"{day}: {n}");
+                                }
+                                break;
+                            case Vaje1.Naloga122:
+                            {
+                                Console.Write("Enter today's temperature:");
+                                int t = int.Parse(Console.ReadLine());
+                                string clothes = Vaje_1.Naloga122(t);
+                                Console.WriteLine($"{t}: {clothes}");
+                            }
+                            break;
                             case Vaje1.Naloga123:
                                 {
                                     Console.Write("Vpišite številko meseca: ");
