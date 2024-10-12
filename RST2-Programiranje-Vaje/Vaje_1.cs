@@ -110,6 +110,15 @@ namespace RST2_Programiranje_Vaje
         /// </summary>
         public static void Naloga131()
         {
+            DateTime date1 = DateTime.Now;
+            
+            while((date1.Hour * date1.Minute * date1.Second % 17) != 0) {
+                Thread.Sleep(500);
+                date1 = DateTime.Now;
+            }
+            Console.WriteLine($"{date1} can be divided by 17, when hours, minutes and seconds are multiplied with each other.");
+
+            
 
         }
 
