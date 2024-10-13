@@ -66,6 +66,15 @@
                                     }
                                 }
                                 break;
+                            case Vaje1.Naloga133:
+                                {
+                                    Console.WriteLine("Enter parameter to get multiples: ");
+                                    int k = int.Parse(Console.ReadLine());
+                                    Console.WriteLine("Enter limit: ");
+                                    int m = int.Parse(Console.ReadLine());
+                                    Vaje_1.Naloga133(k,m);
+                                }
+                                break;
                             case Vaje1.Naloga141:
                                 {
                                     int x = 10;

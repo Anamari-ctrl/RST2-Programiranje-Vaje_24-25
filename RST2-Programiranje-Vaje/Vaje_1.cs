@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Formats.Tar;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
+using System.Transactions;
 
 namespace RST2_Programiranje_Vaje
 {
@@ -14,7 +15,8 @@ namespace RST2_Programiranje_Vaje
         Naloga131 = 4,
         Naloga141 = 5,
         Naloga122 = 6,
-        Naloga132 = 7
+        Naloga132 = 7,
+        Naloga133 = 8
 
     }
 
@@ -147,6 +149,21 @@ namespace RST2_Programiranje_Vaje
             }
             myArr = tmp;
         } 
+
+        ///<summary>
+        /// Zapišite metodo, ki z uporabo zanke 
+        /// do izpisuje večkratnike danega naravnega
+        /// števila, dokler vrednost večkratnika ne preseže danega parametra.
+        public static void Naloga133(int k, int m)  {
+            int curr = k;
+            int i = 1;
+            do
+            {   
+                curr = curr * i;
+                Console.WriteLine($"{curr} is smaller than {m}");
+                curr = curr + k;
+            } while (curr < m);
+        }
 
 
         /// <summary>
