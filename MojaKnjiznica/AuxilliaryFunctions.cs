@@ -7,7 +7,7 @@ namespace MojaKnjiznica
         /// <summary>
         /// Funkcija vrne posebno vsoto.
         /// </summary>
-        public static int Vsota(int x, int y)
+        public static int SUM(int x, int y)
         {
             return 2 * x + y;
         }

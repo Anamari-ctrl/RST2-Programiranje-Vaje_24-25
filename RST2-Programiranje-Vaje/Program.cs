@@ -21,6 +21,22 @@
                                     Vaje_1.Naloga112();
                                 }
                                 break;
+                            case Vaje1.Naloga121:
+                                {
+                                    Console.Write("Enter number corresponding to certain day: ");
+                                    int day = int.Parse(Console.ReadLine());
+                                    string n = Vaje_1.Naloga121(day);
+                                    Console.WriteLine($"{day}: {n}");
+                                }
+                                break;
+                            case Vaje1.Naloga122:
+                            {
+                                Console.Write("Enter today's temperature:");
+                                int t = int.Parse(Console.ReadLine());
+                                string clothes = Vaje_1.Naloga122(t);
+                                Console.WriteLine($"{t}: {clothes}");
+                            }
+                            break;
                             case Vaje1.Naloga123:
                                 {
                                     Console.Write("Vpišite številko meseca: ");
@@ -34,6 +50,38 @@
                                     Vaje_1.Naloga131();
                                 }
                                 break;
+                            case Vaje1.Naloga132:
+                                {
+                                    List<float> ar1 = [1.3f, 1.9f, 1.2f, 3.4f, 7.8f];
+                                    Console.WriteLine($"Original values: ");
+                                    foreach (float v in ar1)
+                                    {
+                                        Console.WriteLine(v);
+                                    }
+                                    Vaje_1.Naloga132(ref ar1);
+                                    Console.WriteLine($"Values bigger than average: {ar1}");
+                                    foreach (float v in ar1)
+                                    {
+                                        Console.WriteLine(v);
+                                    }
+                                }
+                                break;
+                            case Vaje1.Naloga133:
+                                {
+                                    Console.WriteLine("Enter parameter to get multiples: ");
+                                    int k = int.Parse(Console.ReadLine());
+                                    Console.WriteLine("Enter limit: ");
+                                    int m = int.Parse(Console.ReadLine());
+                                    Vaje_1.Naloga133(k,m);
+                                }
+                                break;
+                            case Vaje1.Naloga134:
+                                {
+                                    Console.WriteLine("How many prime numbers you want to output?");
+                                    int k = int.Parse(Console.ReadLine());
+                                    Vaje_1.Naloga134(k);
+                                }
+                                break;      
                             case Vaje1.Naloga141:
                                 {
                                     int x = 10;
