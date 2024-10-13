@@ -129,6 +129,12 @@
                                     Vaje_2.Naloga152();
                                 }
                                 break;
+                            case Vaje2.Naloga151:
+                                {
+                                    Vaje_2.Naloga151();
+                                }
+                                break;
+                                
                             case Vaje2.Naloga171:
                                 {
                                     Vaje_2.Naloga171();
