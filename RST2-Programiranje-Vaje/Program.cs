@@ -75,6 +75,13 @@
                                     Vaje_1.Naloga133(k,m);
                                 }
                                 break;
+                            case Vaje1.Naloga134:
+                                {
+                                    Console.WriteLine("How many prime numbers you want to output?");
+                                    int k = int.Parse(Console.ReadLine());
+                                    Vaje_1.Naloga134(k);
+                                }
+                                break;      
                             case Vaje1.Naloga141:
                                 {
                                     int x = 10;

@@ -1,6 +1,7 @@
 ﻿using MojaKnjiznica;
 using System.ComponentModel.DataAnnotations;
 using System.Formats.Tar;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 using System.Transactions;
@@ -16,7 +17,8 @@ namespace RST2_Programiranje_Vaje
         Naloga141 = 5,
         Naloga122 = 6,
         Naloga132 = 7,
-        Naloga133 = 8
+        Naloga133 = 8,
+        Naloga134 = 9
 
     }
 
@@ -163,6 +165,29 @@ namespace RST2_Programiranje_Vaje
                 Console.WriteLine($"{curr} is smaller than {m}");
                 curr = curr + k;
             } while (curr < m);
+        }
+
+        ///<summary>
+        /// Zapišite metodo, ki izpiše prvih k praštevil, kjer je k parameter. V funkciji
+        /// uporabite vsaj en stavek break in en stavek continue
+        public static void Naloga134(int k) {
+            int limit = 0;
+            for(int i=1; i<=100; i++) {
+                int counter=0;
+                for(int j=1; j<=i; j++) {
+                    if(i % j == 0) {
+                        counter++;
+                    }
+                }
+                if (counter == 2) {
+                    limit++;
+                    Console.WriteLine($"Prime number is: {i}");
+                    continue;
+                }
+                if(limit == k) {
+                    break;
+                }
+            }        
         }
 
 
