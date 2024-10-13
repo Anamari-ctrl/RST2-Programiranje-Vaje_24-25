@@ -50,6 +50,22 @@
                                     Vaje_1.Naloga131();
                                 }
                                 break;
+                            case Vaje1.Naloga132:
+                                {
+                                    List<float> ar1 = [1.3f, 1.9f, 1.2f, 3.4f, 7.8f];
+                                    Console.WriteLine($"Original values: ");
+                                    foreach (float v in ar1)
+                                    {
+                                        Console.WriteLine(v);
+                                    }
+                                    Vaje_1.Naloga132(ref ar1);
+                                    Console.WriteLine($"Values bigger than average: {ar1}");
+                                    foreach (float v in ar1)
+                                    {
+                                        Console.WriteLine(v);
+                                    }
+                                }
+                                break;
                             case Vaje1.Naloga141:
                                 {
                                     int x = 10;

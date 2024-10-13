@@ -1,4 +1,7 @@
 ﻿using MojaKnjiznica;
+using System.ComponentModel.DataAnnotations;
+using System.Formats.Tar;
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 
 namespace RST2_Programiranje_Vaje
@@ -11,6 +14,8 @@ namespace RST2_Programiranje_Vaje
         Naloga131 = 4,
         Naloga141 = 5,
         Naloga122 = 6,
+        Naloga132 = 7
+
     }
 
     /// <summary>
@@ -117,10 +122,32 @@ namespace RST2_Programiranje_Vaje
                 date1 = DateTime.Now;
             }
             Console.WriteLine($"{date1} can be divided by 17, when hours, minutes and seconds are multiplied with each other.");
-
-            
-
         }
+
+        /// <summary>
+        ///Zapišite metodo, ki v danem seznamu realnih števil izbriˇše vse vrednosti,
+        ///ki so manjše od začetnega povprečja. Naredite dve implementaciji: eno z zanko for in eno
+        ///z zanko foreach
+        /// </summary>
+        
+        public static void Naloga132(ref List<float> myArr){
+            float sum = 0;
+            int l = myArr.Count;
+            foreach (float item in myArr) {
+                sum += item;
+            }
+            float avg = sum / l;
+
+            List<float> tmp = new List<float>();
+
+            foreach(float item in myArr) {
+                if (item > avg ){
+                   tmp.Add(item);
+                }
+            }
+            myArr = tmp;
+        } 
+
 
         /// <summary>
         /// Zapišite metodo, ki kot parameter dobi dve celi števili 
