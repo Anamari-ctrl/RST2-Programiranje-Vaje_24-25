@@ -11,7 +11,8 @@ namespace RST2_Programiranje_Vaje
         Naloga143 = 3,
         Naloga152 = 4,
         Naloga171 = 5,
-        Naloga151 = 6
+        Naloga151 = 6,
+        Naloga153 = 7
     }
 
     /// <summary>
@@ -132,7 +133,7 @@ namespace RST2_Programiranje_Vaje
             Console.WriteLine($"{(int)month}: {month}");
         }
 
-        public enum Months
+        public enum Months : byte
         {
             January = 1,
             February = 2,
@@ -174,6 +175,10 @@ namespace RST2_Programiranje_Vaje
             PravDobro1 = 8,
             PravDobro2 = 9,
             Odlično = 10
+        }
+
+        public static void Naloga153() {
+
         }
 
 
