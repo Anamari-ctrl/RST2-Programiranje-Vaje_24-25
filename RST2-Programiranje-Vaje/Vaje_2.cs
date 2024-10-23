@@ -15,7 +15,9 @@ namespace RST2_Programiranje_Vaje
         Naloga171 = 5,
         Naloga151 = 6,
         Naloga153 = 7,
-        Naloga172 = 8
+        Naloga172 = 8,
+        Naloga173 = 9,
+        Naloga173AnotherSolution = 10
     }
 
     /// <summary>
@@ -243,6 +245,33 @@ namespace RST2_Programiranje_Vaje
                         }
                         sw.WriteLine(newLine.ToString());
                     }
+                }
+            }
+        }
+        public static void Naloga173()
+        {
+            using(StreamWriter sw = new StreamWriter("file.txt")) {
+                DateTime endTime = DateTime.Now.AddMinutes(1);  
+                while(DateTime.Now < endTime)
+                {
+                    sw.WriteLine(DateTime.Now);
+                    sw.Flush();
+                    Thread.Sleep(1000);
+  
+                }
+            }
+
+        }
+
+        //bolj na prvo žogo rešitev
+        public static void Naloga173AnotherSolution()
+        {
+            using(StreamWriter sw = new StreamWriter("file1.txt")) {
+                int i = 0;
+                while(i < 60) {
+                    sw.WriteLine(DateTime.Now);
+                    sw.Flush();
+                    Thread.Sleep(1000);
                 }
             }
         }

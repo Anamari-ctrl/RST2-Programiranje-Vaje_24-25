@@ -150,6 +150,18 @@
                                     Vaje_2.Naloga172();
                                 }
                                 break;
+
+                            case Vaje2.Naloga173:
+                                {
+                                    Vaje_2.Naloga173();
+                                }
+                                break;    
+
+                            case Vaje2.Naloga173AnotherSolution:
+                                {
+                                    Vaje_2.Naloga173AnotherSolution();
+                                }
+                                break;    
                         }
                     }
                     break;
