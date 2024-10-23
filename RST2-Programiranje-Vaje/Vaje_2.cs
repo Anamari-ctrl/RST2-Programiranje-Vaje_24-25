@@ -1,5 +1,6 @@
 ﻿using MojaKnjiznica;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 
 namespace RST2_Programiranje_Vaje
@@ -130,10 +131,10 @@ namespace RST2_Programiranje_Vaje
         public static void Naloga151()
         {
             var month = InterfaceFunctions.ChooseSection<Months>();
-            Console.WriteLine($"{(int)month}: {month}");
+            Console.WriteLine($"{month}");
         }
 
-        public enum Months : byte
+        public enum Months
         {
             January = 1,
             February = 2,
@@ -184,43 +185,30 @@ namespace RST2_Programiranje_Vaje
 
         /// <summary>
         /// Zapišite funkcijo, ki bo prebrala dano datoteko 
-        /// in v novo datoteko zapisala vse besede, 
+        /// in v novo datoteko zapisala besede, ki so podane v vsaki vrstici posebej 
         /// ki se pojavijo v prvi, vendar v abecednem vrstnem redu.
         /// </summary>
         public static void Naloga171()
         {
-            // Izberemo si neko obstoječo datoteko, npr. kar naš program!
-            string imeDatotekeZaAnalizo = "RST2-Programiranje-Vaje.exe";
-
-            StreamReader sr = new StreamReader(imeDatotekeZaAnalizo, new FileStreamOptions { Access = FileAccess.Read });
-            
-            // Pripravimo seznam, kamor shranimo vse besede
-            List<string> besede = new List<string>();
-
-            // Preberemo datoteko
-            while (!sr.EndOfStream)
+            string line;
+            var test = new List<String>();
+        
+            using(StreamReader sr = new StreamReader("example.txt"))
             {
-                string[] line = sr.ReadLine().Split(new char[] { ' ', '\t', ',', '!', '?', '.' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string beseda in line)
+                while ((line = sr.ReadLine()) != null)
                 {
-                    besede.Add(beseda);
+                    test.Add(line);
                 }
-
             }
-            sr.Close();
+            test.Sort();
 
-            // Uredimo seznam
-            besede.Sort();
-
-            // Rezultat zapišemo v novo datoteko
-            string rezultat = @"PoAbecedi.txt";
-            StreamWriter sw = new StreamWriter(rezultat);
-            foreach (string beseda in besede)
+            using (StreamWriter sw = new StreamWriter("example1.txt"))
             {
-                sw.WriteLine(beseda);
+                foreach(var item in test) {
+                    sw.WriteLine(item);
+                }
             }
-            sw.Close();
-            Console.WriteLine($"Rezultat je uspešno zapisan v datoteki {rezultat}.");
+                
         }
     }
 }
