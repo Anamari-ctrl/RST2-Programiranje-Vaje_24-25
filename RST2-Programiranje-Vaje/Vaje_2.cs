@@ -1,6 +1,8 @@
 ﻿using MojaKnjiznica;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
+using System.Text;
 
 namespace RST2_Programiranje_Vaje
 {
@@ -11,6 +13,11 @@ namespace RST2_Programiranje_Vaje
         Naloga143 = 3,
         Naloga152 = 4,
         Naloga171 = 5,
+        Naloga151 = 6,
+        Naloga153 = 7,
+        Naloga172 = 8,
+        Naloga173 = 9,
+        Naloga173AnotherSolution = 10
     }
 
     /// <summary>
@@ -33,10 +40,10 @@ namespace RST2_Programiranje_Vaje
             // Uporabimo metodo iz pomožne knjižnice,
             // ki za dani spletni naslov vrne izvorno kodo spletne strani
             string sourceCode = AuxilliaryFunctions.ReadWebPageSource(url);
-            
+
             // Preverimo, kaj smo dobili - samo za potrebe debugiranja
             // Console.WriteLine(sourceCode);
-                       
+
 
             int index = 0;
             // Izpišemo vse povezave, kot nam jih pošilja funkcija GetHyperLinks
@@ -55,7 +62,7 @@ namespace RST2_Programiranje_Vaje
         {
             // Podniz, ki ga v danem nizu iščemo (atribut "href")
             var hrefText = "href=\"";
-            
+
             // Določimo njegovo pozicijo
             var indexOfHref = koda.IndexOf(hrefText);
 
@@ -122,6 +129,31 @@ namespace RST2_Programiranje_Vaje
             }
         }
 
+        /// <summary>
+        /// Zapišite enumeracijo za imena mesecev, 
+        /// ki ima vrednosti tipa byte
+        public static void Naloga151()
+        {
+            var month = InterfaceFunctions.ChooseSection<Months>();
+            Console.WriteLine($"{month}");
+        }
+
+        public enum Months
+        {
+            January = 1,
+            February = 2,
+            March = 3,
+            April = 4,
+            May = 5,
+            June = 6,
+            July = 7,
+            August = 8,
+            September = 9,
+            October = 10,
+            November = 11,
+            December = 12
+        }
+
 
         /// <summary>
         /// Zapišite enumeracijo za imena ocen na fakulteti. 
@@ -150,46 +182,98 @@ namespace RST2_Programiranje_Vaje
             Odlično = 10
         }
 
+        public static void Naloga153()
+        {
+
+        }
+
 
         /// <summary>
         /// Zapišite funkcijo, ki bo prebrala dano datoteko 
-        /// in v novo datoteko zapisala vse besede, 
+        /// in v novo datoteko zapisala besede, ki so podane v vsaki vrstici posebej 
         /// ki se pojavijo v prvi, vendar v abecednem vrstnem redu.
         /// </summary>
         public static void Naloga171()
         {
-            // Izberemo si neko obstoječo datoteko, npr. kar naš program!
-            string imeDatotekeZaAnalizo = "RST2-Programiranje-Vaje.exe";
+            string line;
+            var test = new List<String>();
 
-            StreamReader sr = new StreamReader(imeDatotekeZaAnalizo, new FileStreamOptions { Access = FileAccess.Read });
-            
-            // Pripravimo seznam, kamor shranimo vse besede
-            List<string> besede = new List<string>();
-
-            // Preberemo datoteko
-            while (!sr.EndOfStream)
+            using (StreamReader sr = new StreamReader("example.txt"))
             {
-                string[] line = sr.ReadLine().Split(new char[] { ' ', '\t', ',', '!', '?', '.' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string beseda in line)
+                while ((line = sr.ReadLine()) != null)
                 {
-                    besede.Add(beseda);
+                    test.Add(line);
                 }
-
             }
-            sr.Close();
+            test.Sort();
 
-            // Uredimo seznam
-            besede.Sort();
-
-            // Rezultat zapišemo v novo datoteko
-            string rezultat = @"PoAbecedi.txt";
-            StreamWriter sw = new StreamWriter(rezultat);
-            foreach (string beseda in besede)
+            using (StreamWriter sw = new StreamWriter("example1.txt"))
             {
-                sw.WriteLine(beseda);
+                foreach (var item in test)
+                {
+                    sw.WriteLine(item);
+                }
             }
-            sw.Close();
-            Console.WriteLine($"Rezultat je uspešno zapisan v datoteki {rezultat}.");
+
+        }
+        public static void Naloga172()
+        {
+            Dictionary<char, char> pairs = new Dictionary<char, char>();
+            pairs.Add('a', 'e');
+            pairs.Add('e', 'i');
+            pairs.Add('i', 'o');
+            pairs.Add('o', 'u');
+            pairs.Add('u', 'a');
+
+            using (StreamWriter sw = new StreamWriter("zamaknjeni.txt"))
+            {
+                using (StreamReader sr = new StreamReader("example.txt"))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        StringBuilder newLine = new StringBuilder();
+
+                        foreach (var c in line)
+                        {
+                            if (pairs.ContainsKey(c))
+                            {
+                                newLine.Append(pairs[c]);
+                            }else{
+                                newLine.Append(c);
+                            }
+                        }
+                        sw.WriteLine(newLine.ToString());
+                    }
+                }
+            }
+        }
+        public static void Naloga173()
+        {
+            using(StreamWriter sw = new StreamWriter("file.txt")) {
+                DateTime endTime = DateTime.Now.AddMinutes(1);  
+                while(DateTime.Now < endTime)
+                {
+                    sw.WriteLine(DateTime.Now);
+                    sw.Flush();
+                    Thread.Sleep(1000);
+  
+                }
+            }
+
+        }
+
+        //bolj na prvo žogo rešitev
+        public static void Naloga173AnotherSolution()
+        {
+            using(StreamWriter sw = new StreamWriter("file1.txt")) {
+                int i = 0;
+                while(i < 60) {
+                    sw.WriteLine(DateTime.Now);
+                    sw.Flush();
+                    Thread.Sleep(1000);
+                }
+            }
         }
     }
 }
