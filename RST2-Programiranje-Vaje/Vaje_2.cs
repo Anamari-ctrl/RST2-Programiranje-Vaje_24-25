@@ -2,6 +2,7 @@
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
+using System.Text;
 
 namespace RST2_Programiranje_Vaje
 {
@@ -13,7 +14,8 @@ namespace RST2_Programiranje_Vaje
         Naloga152 = 4,
         Naloga171 = 5,
         Naloga151 = 6,
-        Naloga153 = 7
+        Naloga153 = 7,
+        Naloga172 = 8
     }
 
     /// <summary>
@@ -36,10 +38,10 @@ namespace RST2_Programiranje_Vaje
             // Uporabimo metodo iz pomožne knjižnice,
             // ki za dani spletni naslov vrne izvorno kodo spletne strani
             string sourceCode = AuxilliaryFunctions.ReadWebPageSource(url);
-            
+
             // Preverimo, kaj smo dobili - samo za potrebe debugiranja
             // Console.WriteLine(sourceCode);
-                       
+
 
             int index = 0;
             // Izpišemo vse povezave, kot nam jih pošilja funkcija GetHyperLinks
@@ -58,7 +60,7 @@ namespace RST2_Programiranje_Vaje
         {
             // Podniz, ki ga v danem nizu iščemo (atribut "href")
             var hrefText = "href=\"";
-            
+
             // Določimo njegovo pozicijo
             var indexOfHref = koda.IndexOf(hrefText);
 
@@ -178,7 +180,8 @@ namespace RST2_Programiranje_Vaje
             Odlično = 10
         }
 
-        public static void Naloga153() {
+        public static void Naloga153()
+        {
 
         }
 
@@ -192,8 +195,8 @@ namespace RST2_Programiranje_Vaje
         {
             string line;
             var test = new List<String>();
-        
-            using(StreamReader sr = new StreamReader("example.txt"))
+
+            using (StreamReader sr = new StreamReader("example.txt"))
             {
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -204,11 +207,44 @@ namespace RST2_Programiranje_Vaje
 
             using (StreamWriter sw = new StreamWriter("example1.txt"))
             {
-                foreach(var item in test) {
+                foreach (var item in test)
+                {
                     sw.WriteLine(item);
                 }
             }
-                
+
+        }
+        public static void Naloga172()
+        {
+            Dictionary<char, char> pairs = new Dictionary<char, char>();
+            pairs.Add('a', 'e');
+            pairs.Add('e', 'i');
+            pairs.Add('i', 'o');
+            pairs.Add('o', 'u');
+            pairs.Add('u', 'a');
+
+            using (StreamWriter sw = new StreamWriter("zamaknjeni.txt"))
+            {
+                using (StreamReader sr = new StreamReader("example.txt"))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        StringBuilder newLine = new StringBuilder();
+
+                        foreach (var c in line)
+                        {
+                            if (pairs.ContainsKey(c))
+                            {
+                                newLine.Append(pairs[c]);
+                            }else{
+                                newLine.Append(c);
+                            }
+                        }
+                        sw.WriteLine(newLine.ToString());
+                    }
+                }
+            }
         }
     }
 }
