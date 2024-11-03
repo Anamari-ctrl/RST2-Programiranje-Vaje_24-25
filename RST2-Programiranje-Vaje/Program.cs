@@ -5,7 +5,8 @@
         enum Sections
         {
             Vaje_1 = 1,
-            Vaje_2 = 2
+            Vaje_2 = 2,
+            Vaje_3 = 3
         }
 
         static void Main(string[] args)
@@ -162,6 +163,19 @@
                                     Vaje_2.Naloga173AnotherSolution();
                                 }
                                 break;    
+                        }
+                    }
+                    break;
+
+                case Sections.Vaje_3:
+                    {
+                        switch(InterfaceFunctions.ChooseSection<Vaje3>())
+                        {
+                            case Vaje3.Naloga181:
+                            {
+                                Vaje_3.Naloga181();
+                            }
+                            break;
                         }
                     }
                     break;
